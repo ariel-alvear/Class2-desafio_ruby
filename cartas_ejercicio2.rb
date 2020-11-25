@@ -28,8 +28,28 @@ class Card_deck
         @cards.push(Card.new(i, 'T'))
         end
     end
+
+    def shuffle_deck
+        @cards.shuffle!
+    end
+
+    def take_card
+        @cards.pop
+    end
+
+    def take_hand(number_of_cards = 5)
+        @cards.pop(number_of_cards)
+    end
 end
 
-#probamos ahora la creación de una baraja de cartas, sin los joker
+#creamos un nuevo mazo de cartas sin joker (4 pintas, 13 cartas por pinta)
 deck1 = Card_deck.new('mazo de cartas 1')
 
+#desordenamos el deck1
+deck1.shuffle_deck
+
+#sacamos la primera carta
+deck1.take_card
+
+#sacamos una mano de cartas, por defecto el valor será 5
+deck1.take_hand
