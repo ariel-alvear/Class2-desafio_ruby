@@ -7,7 +7,6 @@ class Bank_user
     end
 
     def total_user_balance
-        @bank_accounts
     end
 end
 
