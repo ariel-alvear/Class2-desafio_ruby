@@ -7,6 +7,11 @@ class Bank_user
     end
 
     def total_user_balance
+        total_balance = 0
+        (bank_accounts.count).times do |i|
+            total_balance += bank_accounts[i].balance
+        end
+        total_balance
     end
 end
 
@@ -25,18 +30,16 @@ class Bank_account
 end
 
 #probamos las transferencias
-
 cuenta1 = Bank_account.new('Banco de Chile', 12345678)
-
 cuenta2 = Bank_account.new('Itau', 87654321, 5000)
-
 cuenta2.transfer_money(5000, cuenta1)
 
 #probamos la cardinalidad. 1 persona puede tener N cuentas. Cada cuenta pertenece a solo 1 persona.
-
 usuario1 = Bank_user.new('ariel', cuenta1)
 usuario1.bank_accounts.push(cuenta2)
 
+#probamos el método que nos trae el balance total de un usuario
+usuario1.total_user_balance
 
 
 
